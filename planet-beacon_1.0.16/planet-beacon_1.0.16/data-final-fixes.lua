@@ -3,11 +3,18 @@
 -- Prevent crash from missing "minable" field
 -- ============================================================
 
+local function item_exists(name)
+  if not name then return false end
+  return (data.raw["item"] and data.raw["item"][name] ~= nil)
+      or (data.raw["tool"] and data.raw["tool"][name] ~= nil)
+end
+
 local function ensure_minable(entity)
     if not entity then return end
     if entity.flags and entity.flags["not-deconstructable"] then return end
 
-    if not entity.minable then
+    -- ตรวจว่ามี item ชื่อนั้นอยู่จริงก่อนเสมอ
+    if not entity.minable and item_exists(entity.name) then
         entity.minable = {
             mining_time = 0.1,
             result = entity.name
