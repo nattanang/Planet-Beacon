@@ -42,22 +42,25 @@ end
 
 
 -- ------------------------------------------------------------
--- Extra safety: prevent other mods from crashing when
--- accessing entity.minable.result directly
+-- FIX #9: ป้องกัน crash ใน loop - ตรวจ type เป็น table ก่อน
+-- และตรวจ entity เป็น table + มี minable ก่อน access fields
 -- ------------------------------------------------------------
 
 for type_name, prototype_list in pairs(data.raw) do
-    for _, entity in pairs(prototype_list) do
-        if entity.minable and not entity.minable.result and not entity.minable.results then
-            entity.minable.result = entity.name
+    if type(prototype_list) == "table" then
+        for _, entity in pairs(prototype_list) do
+            if type(entity) == "table"
+              and entity.minable
+              and type(entity.minable) == "table"
+              and not entity.minable.result
+              and not entity.minable.results
+              and entity.name
+            then
+                entity.minable.result = entity.name
+            end
         end
     end
 end
 
 
 log("Planet Beacon minable compatibility patch applied successfully.")
--- ตรวจ nil ก่อนเสมอ
-local base_item = data.raw["item"]["iron-plate"]
-if base_item ~= nil then
-  -- ทำต่อ
-end
