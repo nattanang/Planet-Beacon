@@ -1,0 +1,41 @@
+-- ===========================================================
+--  Planet Beacon Mod  |  control.lua
+--  จำกัดให้วางได้แค่ 1 อันต่อ planet/surface
+-- ===========================================================
+
+local function check_and_remove(entity, player_index)
+  if entity.name ~= "planet-beacon" then return end
+
+  local surface  = entity.surface
+  local existing = surface.find_entities_filtered{ name = "planet-beacon" }
+
+  if #existing > 1 then
+    if player_index then
+      local player = game.players[player_index]
+      player.insert{ name = "planet-beacon", count = 1 }
+      player.print(
+        "[Planet Beacon] Only one Planet Beacon is allowed per planet!",
+        { r = 1, g = 0.3, b = 0.3 }
+      )
+    else
+      surface.spill_item_stack(
+        entity.position,
+        { name = "planet-beacon", count = 1 },
+        true
+      )
+    end
+    entity.destroy()
+  end
+end
+
+script.on_event(defines.events.on_built_entity, function(e)
+  check_and_remove(e.entity, e.player_index)
+end)
+
+script.on_event(defines.events.on_robot_built_entity, function(e)
+  check_and_remove(e.entity, nil)
+end)
+
+script.on_event(defines.events.script_raised_built, function(e)
+  check_and_remove(e.entity, nil)
+end)

@@ -1,0 +1,40 @@
+v1.3.0
+2/26/25
+Adjust Science for planet beacon mod & enable beacons to be built in Electromagnetic Plant
+----
+v1.2.0
+4/17/25
+Fix Recipe problem
+----
+v1.2.0
+4/17/25
+Fix some hard code
+----
+v1.1.6
+4/17/25
+Fix Mk7 Recipe issue
+----
+v1.1.5
+4/17/25
+Fix some hard code
+----
+v1.1.4
+4/17/25
+Fix some code
+----
+v.1.1.3
+4/17.25
+Fix Recipe problem
+----
+v1.1.2
+4/17/25
+Fix issue around quality (hopefully)
+----
+v1.1.1
+4/17/25
+Fix issue around quality
+----
+v1.1.0
+4/15/25
+Initial Release
+----

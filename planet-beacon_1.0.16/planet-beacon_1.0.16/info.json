@@ -1,0 +1,15 @@
+{
+  "name": "planet-beacon",
+  "version": "1.0.16",
+  "title": "Planet Beacon",
+  "author": "YourName",
+  "description": "Adds a 4x4 Planet Beacon that covers very long range (50 tiles, tried to go for 10000 but it was limited by game engine). Consumes 50MW. Only one can be placed per planet. Crafted exclusively in Electromagnetic Plant.",
+  "factorio_version": "2.0",
+"dependencies": [
+    "base >= 2.0.0",
+    "space-age >= 2.0.0",
+    "TarawindBeacons2 >= 1.0.0",
+    "(?) cargo_crates >= 0.0.1",
+    "(?) GlobalBeacon" 
+]
+}

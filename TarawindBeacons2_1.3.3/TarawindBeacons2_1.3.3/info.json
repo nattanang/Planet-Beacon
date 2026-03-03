@@ -1,0 +1,14 @@
+	{
+	"name": "TarawindBeacons2",
+	"version": "1.3.3",
+	"title": "Tarawind Beacons 2",
+	"author": "nattanang",
+	"contact": "",
+	"homepage": "",
+	"dependencies": [
+		"base >= 2.0",
+		"? pypostprocessing"
+	],
+	"description": "A fork of outdated Tarawind Beacons mod, which added 7 tiers of powerful beacons that accept productivity and (Currently fixing) Quality modules. Required for Global Beacon",
+	"factorio_version": "2.0"
+}
